@@ -12,7 +12,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using WEBWORK.DATA.Data;
+using WEBWORK.DATA.Models;
 using WEBWORK.WEB3.Configurations;
+using WEBWORK.WEB3.Repositories;
 
 namespace WEBWORK.WEB3
 {
@@ -36,6 +38,9 @@ namespace WEBWORK.WEB3
             {
                 s.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "School Manager API", Description = "School Management System Documentation" })  ;
             });
+
+            services.AddScoped<IRepository<Student>, StudentRepository>();
+            services.AddScoped<IRepository<Student>, MegaStudentRepository>();
 
 
 

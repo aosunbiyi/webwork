@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using WEBWORK.DATA.Data;
 using WEBWORK.DATA.Models;
 using WEBWORK.DATA.Models.BindingTarget;
+using WEBWORK.WEB3.Repositories;
 
 namespace WEBWORK.WEB3.Controllers
 {
@@ -15,9 +16,11 @@ namespace WEBWORK.WEB3.Controllers
     public class StudentsController : Controller
     {
         private ApplicationContext context { get; set; }
-        public StudentsController(ApplicationContext _context)
+        public IRepository<Student> repo { get; }
+        public StudentsController(ApplicationContext _context, IRepository<Student> _repo)
         {
             this.context = _context;
+            repo = _repo;
         }
 
         [HttpGet(Name = "GetAllStudent")]
@@ -27,7 +30,7 @@ namespace WEBWORK.WEB3.Controllers
 
         public IActionResult GetAllStudent()
         {
-            return Ok(this.context.Students.ToList()) ;
+            return Ok(this.repo.GetAll()) ;
         }
 
 
