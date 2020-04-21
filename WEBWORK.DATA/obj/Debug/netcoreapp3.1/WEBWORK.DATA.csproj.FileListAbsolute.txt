@@ -1,0 +1,10 @@
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\bin\Debug\netcoreapp3.1\WEBWORK.DATA.deps.json
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\bin\Debug\netcoreapp3.1\WEBWORK.DATA.dll
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp3.1\WEBWORK.DATA.csprojAssemblyReference.cache
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp3.1\WEBWORK.DATA.AssemblyInfoInputs.cache
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp3.1\WEBWORK.DATA.AssemblyInfo.cs
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\bin\Debug\netcoreapp3.1\WEBWORK.DATA.pdb
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp3.1\WEBWORK.DATA.dll
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp3.1\WEBWORK.DATA.pdb
