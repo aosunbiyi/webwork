@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using WEBWORK.DATA.Data;
 using WEBWORK.DATA.Models;
+using WEBWORK.DATA.Models.BindingTarget;
 
 namespace WEBWORK.WEB3.Controllers
 {
@@ -50,12 +51,71 @@ namespace WEBWORK.WEB3.Controllers
             return Ok(student);
         }
 
+        [HttpGet("GetByEmail/{email}")]
+        [Produces("application/json")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+
+        public IActionResult GetByEmail([FromRoute] string email)
+        {
+            if( email.Trim().Length == 0  && !email.Trim().Equals("")  )
+            {
+                return BadRequest(ModelState);
+            }
+            var mailToLower = email.ToLower().Trim();
+
+            var student = this.context.Students.Where(a => a.Email.ToLower().Trim().Equals(mailToLower)).FirstOrDefault();
+            if (student == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(student);
+            }
+
+        }
+
+        [HttpGet("GetByEmail/{email}/AndPhoneNumber/{phone}")]
+        [Produces("application/json")]
+        [ProducesResponseType(200)]
+        [ProducesResponseType(500)]
+
+        public IActionResult GetByEmailAndPhoneNumber([FromRoute] string email, string phone)
+        {
+            if (email.Trim().Length == 0 && !email.Trim().Equals(""))
+            {
+                return BadRequest(ModelState);
+            }
+
+            if (phone.Trim().Length == 0 && !phone.Trim().Equals(""))
+            {
+                return BadRequest(ModelState);
+            }
+            var mailToLower = email.ToLower().Trim();
+            var sPhone = phone.ToLower().Trim();
+
+            var student = this.context.Students.Where(a => a.Email.ToLower().Trim().Equals(mailToLower) && a.Phone==sPhone).FirstOrDefault();
+            if (student == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(student);
+            }
+
+        }
+
+
 
         [HttpPost(Name = "CreateStudent")]
         [Produces("application/json")]
         [ProducesResponseType(200)]
         [ProducesResponseType(500)]
-        public async Task<IActionResult> CreateStudent([FromBody] Student student) {
+        public async Task<IActionResult> CreateStudent([FromBody] StudentData sdata) {
+
+            var student = sdata.Student;
 
             if (!ModelState.IsValid)
             {
@@ -116,6 +176,8 @@ namespace WEBWORK.WEB3.Controllers
             return Ok();
 
         }
+
+      
     }
 }
 
