@@ -7,6 +7,7 @@ using WEBWORK.DATA.Data;
 using WEBWORK.DATA.Models;
 using WEBWORK.DATA.Models.BindingTarget;
 using WEBWORK.WEB3.Repositories;
+using WEBWORK.WEB3.Repositories.IRepositories;
 
 namespace WEBWORK.WEB3.Controllers
 {
@@ -16,8 +17,8 @@ namespace WEBWORK.WEB3.Controllers
     public class StudentsController : Controller
     {
         private ApplicationContext context { get; set; }
-        public IRepository<Student> repo { get; }
-        public StudentsController(ApplicationContext _context, IRepository<Student> _repo)
+        public IStudentRepository repo { get; }
+        public StudentsController(ApplicationContext _context, IStudentRepository _repo)
         {
             this.context = _context;
             repo = _repo;
@@ -166,7 +167,7 @@ namespace WEBWORK.WEB3.Controllers
         }
 
         [HttpDelete("{id}",Name = "DeleteStudent")]
-        public IActionResult DeleteStudent([FromRoute] int id)
+        public IActionResult DeleteStudent([FromRoute] long id)
         {
             var st = this.context.Students.Where(a => a.StudentId == id).SingleOrDefault();
             if (st == null)
