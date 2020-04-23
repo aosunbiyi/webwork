@@ -37,7 +37,9 @@ namespace WEBWORK.WEB3
             services.AddCostumeMVC();
             services.AddSwaggerGen(s =>
             {
-                s.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "School Manager API", Description = "School Management System Documentation" })  ;
+                s.SwaggerDoc(
+                    "v1", 
+                    new Microsoft.OpenApi.Models.OpenApiInfo { Title = "School Manager API", Description = "School Management System Documentation" })  ;
             });
 
             services.AddScoped<IStudentRepository, StudentRepository>();
