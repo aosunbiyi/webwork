@@ -8,3 +8,5 @@ C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp2.2\WEBWORK.DA
 C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp2.2\WEBWORK.DATA.AssemblyInfo.cs
 C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp2.2\WEBWORK.DATA.dll
 C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\obj\Debug\netcoreapp2.2\WEBWORK.DATA.pdb
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\bin\Debug\netcoreapp2.2\WEBWORK.DATA.runtimeconfig.json
+C:\Users\HP\source\repos\WebWork\WEBWORK.DATA\bin\Debug\netcoreapp2.2\WEBWORK.DATA.runtimeconfig.dev.json

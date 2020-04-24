@@ -12,6 +12,8 @@ namespace WEBWORK.DATA.Models
             StudentSubjects = new HashSet<StudentSubjectMapping>();
         }
         public long StudentId { get; set; }
+
+        public long AcademicSetId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -24,6 +26,8 @@ namespace WEBWORK.DATA.Models
 
         public string Position { get; set; }
         public string RankName { get; set; }
+
+        public AcademicSet AcademicSet { get; set; }
 
         public ICollection<StudentSubjectMapping> StudentSubjects { get; set; }
 
