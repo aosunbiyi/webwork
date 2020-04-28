@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -22,9 +23,13 @@ namespace WEBWORK.WEB3.Configurations
             services.AddDbContext<ApplicationContext>(options => options
                 .UseSqlServer(configuration.GetConnectionString("DefaultConnection"), b => b.MigrationsAssembly("WEBWORK.WEB3")));
 
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<ApplicationContext>();
+
             return services;
 
         }
+
+     
 
         public static IServiceCollection AddCostumeMVC(this IServiceCollection services) {
 

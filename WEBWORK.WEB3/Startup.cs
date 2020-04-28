@@ -14,6 +14,7 @@ using Microsoft.Extensions.Options;
 using WEBWORK.DATA.Data;
 using WEBWORK.DATA.Models;
 using WEBWORK.WEB3.Configurations;
+using WEBWORK.WEB3.Models;
 using WEBWORK.WEB3.Repositories.IRepositories;
 using WEBWORK.WEB3.Repositories.Repositories;
 
@@ -49,7 +50,7 @@ namespace WEBWORK.WEB3
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -61,6 +62,8 @@ namespace WEBWORK.WEB3
                 app.UseHsts();
             }
 
+            app.UseAuthentication();
+
             app.UseCors("AllowAll");
             app.UseHttpsRedirection();
             app.UseMvc();
@@ -70,6 +73,10 @@ namespace WEBWORK.WEB3
             {
                 s.SwaggerEndpoint("/swagger/v1/swagger.json", "v1 docs");
             });
+
+            //SeedData.SeedDatabase(services.GetRequiredService<ApplicationContext>());
+
+            //IdentitySeedData.SeedDatabase(services).Wait();
 
         }
     }

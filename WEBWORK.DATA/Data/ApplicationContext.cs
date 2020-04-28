@@ -4,10 +4,12 @@ using System.Collections.Generic;
 using System.Text;
 using WEBWORK.DATA.Models;
 using System.Linq;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace WEBWORK.DATA.Data
 {
-    public class ApplicationContext: DbContext
+    public class ApplicationContext: IdentityDbContext
     {
 
         public ApplicationContext()
@@ -36,6 +38,7 @@ namespace WEBWORK.DATA.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            base.OnModelCreating(builder);
             builder.Entity<StudentSubjectMapping>().HasKey(sc=> new { sc.StudentId, sc.SubjectId});
 
             builder.Entity<StudentSubjectMapping>()
