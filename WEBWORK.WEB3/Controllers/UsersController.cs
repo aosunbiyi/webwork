@@ -22,10 +22,15 @@ namespace WEBWORK.WEB3.Controllers
     {
         private readonly UserManager<IdentityUser> userManager;
         private readonly RoleManager<IdentityRole> roleManager;
-        public UsersController(UserManager<IdentityUser> _userManager, RoleManager<IdentityRole> _roleManager)
+        private readonly SignInManager<IdentityUser> signInManager;
+        public UsersController(
+            UserManager<IdentityUser> _userManager, 
+            RoleManager<IdentityRole> _roleManager,
+            SignInManager<IdentityUser> _signInManager) 
         {
             this.userManager = _userManager;
-            this.roleManager = roleManager;
+            this.roleManager = _roleManager;
+            this.signInManager = _signInManager;
         }
 
         [HttpPost("createUser")]

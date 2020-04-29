@@ -9,5 +9,7 @@ namespace WEBWORK.WEB3.Repositories.IRepositories
    public interface IStudentRepository: IRepository<Student>
     {
         IEnumerable<Student> GetByEmail(string email);
+
+        IEnumerable<Student> CreateRelationship();
     }
 }

@@ -33,7 +33,7 @@ namespace WEBWORK.WEB3.Controllers
 
         public IActionResult GetAllStudent()
         {
-            return Ok(this.repo.GetAll()) ;
+            return Ok(this.repo.CreateRelationship()) ;
         }
 
 
